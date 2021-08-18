@@ -29,7 +29,7 @@ def predict():
                     values[col] = [float(request.form[col])]
             df = pd.DataFrame.from_dict(values)
             result = california_housing_model.predict(df)[0]
-        except:
+        except Exception as e:
             result = "Please enter valid inputs"
         return render_template("form.html", results=result)
 
